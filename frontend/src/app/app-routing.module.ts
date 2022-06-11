@@ -6,12 +6,25 @@ import { HomeComponent } from './home/home.component';
 import { SignupComponent } from './auth/signup/signup.component';
 import { ErrorComponent } from './error/error.component';
 import { TemplatesComponent } from './templates/templates.component';
+import { AddComponent } from './resume/add/add.component';
+import { EditComponent } from './resume/edit/edit.component';
+import { ViewComponent } from './resume/view/view.component';
 
 const routes: Routes = [
   { path: 'login', component: LoginComponent },
   { path: 'signup', component: SignupComponent },
   { path: '', component: HomeComponent },
   { path: 'templates', component: TemplatesComponent },
+  { 
+    path: 'resume', 
+
+    children: [
+      { path: 'add', component: AddComponent },
+      { path: 'edit', component: EditComponent },
+      { path: 'view', component: ViewComponent }
+    ]
+  },
+  
   { path: '**', component: ErrorComponent }
 ];
 

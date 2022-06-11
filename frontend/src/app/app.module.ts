@@ -13,6 +13,8 @@ import { ErrorComponent } from './error/error.component';
 import { HeaderComponent } from './common/header/header.component';
 import { FooterComponent } from './common/footer/footer.component';
 import { SignupComponent } from './auth/signup/signup.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { PreviewComponent } from './resume/preview/preview.component';
 
 @NgModule({
   declarations: [
@@ -26,11 +28,14 @@ import { SignupComponent } from './auth/signup/signup.component';
     ErrorComponent,
     HeaderComponent,
     FooterComponent,
-    SignupComponent
+    SignupComponent,
+    PreviewComponent
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    FormsModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
