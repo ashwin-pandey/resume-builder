@@ -10,6 +10,8 @@ export class AddComponent implements OnInit {
   constructor() { }
 
   skills: any[] = [];
+  hobbies: any[] = [];
+
   skillInput: any = '';
   hobby: any = '';
 
@@ -33,7 +35,8 @@ export class AddComponent implements OnInit {
   }
 
   addHobbies() {
-
+    this.hobbies.push(this.hobby);
+    this.hobby = '';
   }
 
 }
