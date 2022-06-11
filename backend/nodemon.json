@@ -1,8 +1,9 @@
 {
     "env" : {
-        "MONGO_ATLAS_PW" : "'Facebookisgreat123!'",
+        "MONGO_ATLAS_PW" : "Jaybhanushali316",
         "JWT_KEY": "secret",
         "url":"/",
-        "PORT": "4000"
+        "PORT": "4000",
+        "MONGO_USER":"jaybhanushali3166"
     }
 }
