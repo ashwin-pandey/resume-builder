@@ -3,6 +3,7 @@ const mongoose = require('mongoose');
 const resumeSchema = mongoose.Schema({
     _id: mongoose.Schema.Types.ObjectId,
     template: { type: mongoose.Schema.Types.ObjectId, ref: 'Template', required: true },
+    qrGenerated: { type: Boolean, required: false, default: false },
     data: {
         firstName: String,
         lastName: String,

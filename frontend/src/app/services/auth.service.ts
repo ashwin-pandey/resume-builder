@@ -1,13 +1,15 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { BehaviorSubject } from 'rxjs';
+import { environment } from 'src/environments/environment';
 
 @Injectable({
   providedIn: 'root'
 })
 export class AuthService {
+
   isLoggedIn = new BehaviorSubject<boolean>(false);
-  baseUrl: string = 'http://localhost:4000';
+  baseUrl: string = environment.baseUrl;
   constructor(private _http: HttpClient) { }
 
   loginUser(email: string, password: string) {

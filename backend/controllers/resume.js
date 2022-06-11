@@ -27,9 +27,7 @@ exports.createResume = (req, res, next) => {
     let body = req.body;
     Template.find({ template: body.template, email: body.email })
         .then(template => {
-
             if (!template) {
-
                 return res.status(404).json({
                     message: "Template not found"
                 });
@@ -45,7 +43,7 @@ exports.createResume = (req, res, next) => {
             res.status(201).json({
                 message: 'Resume stored',
                 createdResume: {
-                    ...result?._doc
+                    ...result._doc
                 }
             })
         })
@@ -94,3 +92,62 @@ exports.deleteResume = (req, res, next) => {
         });
 }
 
+exports.updateResume = (req, res, next) => {
+    const { resume } = req.body;
+    Resume.findByIdAndUpdate({_id : req.params.id }, { $set : resume })
+    .exec()
+    .then(result =>{
+        console.log(result);
+        res.status(200).json({
+            message: 'Resume Updated'
+        })
+    })
+    .catch( err =>{
+        console.log(err);
+        res.status(500).json({
+            error : err
+        })
+    });
+}
+
+exports.generateQR = (req, res, next) => {
+    Resume.findOneAndUpdate({ _id: req.params.resumeId }, { qrGenerated: true })
+        .exec()
+        .then(resume => {
+            console.log(resume);
+            res.status(200).json({
+                data: 'QR Link Generated Successfully'
+            })
+        })
+        .catch(err => {
+            res.status(500).json({
+                error: err
+            })
+        });
+}
+
+exports.getQRLink = (req, res, next) => {
+    Resume.findById(req.params.resumeId)
+        .exec()
+        .then(resume => {
+            if (!resume) {
+                return res.status(404).json({
+                    message: 'resume not Found'
+                })
+            }
+            console.log(resume.qrGenerated);
+            if (!resume.qrGenerated) {
+                return res.status(404).json({
+                    message: 'resume not shared'
+                })
+            }
+            res.status(200).json({
+                data: `${req.protocol}://${req.get('host')}/QRLink/${req.params.resumeId}`
+            })
+        })
+        .catch(err => {
+            res.status(500).json({
+                error: err
+            })
+        });
+}
