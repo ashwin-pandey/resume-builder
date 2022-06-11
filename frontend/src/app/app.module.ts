@@ -3,7 +3,7 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
-import { LoginComponent } from './login/login.component';
+import { LoginComponent } from './auth/login/login.component';
 import { HomeComponent } from './home/home.component';
 import { TemplatesComponent } from './templates/templates.component';
 import { AddComponent } from './resume/add/add.component';
