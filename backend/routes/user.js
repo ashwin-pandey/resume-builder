@@ -1,7 +1,7 @@
 const express = require('express');
 const router = express.Router();
 const mongoose = require('mongoose');
-const bcrypt = require('bcryptjs');
+const bcrypt = require('bcrypt');
 const jwt = require('jsonwebtoken');
 
 //Models
@@ -27,7 +27,8 @@ router.post('/signup', (req, res, next) => {
                 
                 if (err) {
                     return res.status(500).json({
-                        error: err
+                        error: err,
+                        message:"No password detected"
                     });
                 }
                 else {
