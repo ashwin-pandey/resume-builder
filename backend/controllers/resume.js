@@ -92,6 +92,24 @@ exports.deleteResume = (req, res, next) => {
         });
 }
 
+exports.updateResume = (req, res, next) => {
+    const { resume } = req.body;
+    Resume.findByIdAndUpdate({_id : req.params.id }, { $set : resume })
+    .exec()
+    .then(result =>{
+        console.log(result);
+        res.status(200).json({
+            message: 'Resume Updated'
+        })
+    })
+    .catch( err =>{
+        console.log(err);
+        res.status(500).json({
+            error : err
+        })
+    });
+}
+
 exports.generateQR = (req, res, next) => {
     Resume.findOneAndUpdate({ _id: req.params.resumeId }, { qrGenerated: true })
         .exec()
