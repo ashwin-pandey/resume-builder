@@ -1,0 +1,9 @@
+.form-group {
+    margin-top: 15px;
+}
+.form-control {
+    margin-top: 5px;
+}
+span.required {
+    color: red;
+}

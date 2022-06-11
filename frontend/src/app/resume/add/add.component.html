@@ -1,21 +1,32 @@
 <div class="row">
-    <div class="col-6">
+    <div class="col-12">
         <div class="card">
             <div class="card-body">
                 <form action="">
-
+                    <h3 class="card-title text-center mt-4">Personal Details</h3>
+                    <hr />
                     <!-- NAME -->
                     <div class="row">
                         <div class="col-6">
                             <div class="form-group">
-                                <label for="name">First Name</label>
-                                <input type="text" class="form-control" name="firstName" placeholder="John">
+                                <label for="firstName">First Name<span class="required">*</span></label>
+                                <input type="text" class="form-control" name="firstName" placeholder="John" required>
                             </div>
                         </div>
                         <div class="col-6">
                             <div class="form-group">
-                                <label for="name">Last Name</label>
-                                <input type="text" class="form-control" name="lastName" placeholder="Doe">
+                                <label for="lastName">Last Name<span class="required">*</span></label>
+                                <input type="text" class="form-control" name="lastName" placeholder="Doe" required>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- DESIGNATION -->
+                    <div class="row">
+                        <div class="col-12">
+                            <div class="form-group">
+                                <label for="currentDesignation">Current Designation<span class="required">*</span></label>
+                                <input type="text" class="form-control" name="designation" placeholder="Software Developer" required>
                             </div>
                         </div>
                     </div>
@@ -24,8 +35,8 @@
                     <div class="row">
                         <div class="col-12">
                             <div class="form-group">
-                                <label for="introduction">Short Description</label>
-                                <textarea name="introduction" class="form-control" id="" cols="30" rows="2"></textarea>
+                                <label for="introduction">Short Description<span class="required">*</span></label>
+                                <textarea name="introduction" class="form-control" id="" cols="30" rows="2" required></textarea>
                             </div>
                         </div>
                     </div>
@@ -35,18 +46,181 @@
                         <div class="col-6">
                             <!-- EMAIL -->
                             <div class="form-group">
-                                <label for="email">Email</label>
-                                <input type="email" class="form-control" name="email" placeholder="example@gmail.com">
+                                <label for="email">Email<span class="required">*</span></label>
+                                <input type="email" class="form-control" name="email" placeholder="example@gmail.com" required>
                             </div>
                         </div>
                         <div class="col-6">
                             <!-- PHONE NUMBER -->
                             <div class="form-group">
-                                <label for="phoneNumber">Phone Number</label>
-                                <input type="text" class="form-control" name="phoneNumber" placeholder="example@gmail.com">
+                                <label for="phoneNumber">Phone Number<span class="required">*</span></label>
+                                <input type="text" class="form-control" name="phoneNumber" placeholder="example@gmail.com" required>
                             </div>
                         </div>
                     </div>
+
+                    <!-- ADDRESS -->
+                    <div class="row">
+                        <div class="col-6">
+                            <!-- CITY -->
+                            <div class="form-group">
+                                <label for="city">City<span class="required">*</span></label>
+                                <input type="text" class="form-control" name="city" placeholder="example@gmail.com" required>
+                            </div>
+                        </div>
+                        <div class="col-6">
+                            <!-- STATE -->
+                            <div class="form-group">
+                                <label for="state">State<span class="required">*</span></label>
+                                <input type="text" class="form-control" name="state" placeholder="example@gmail.com" required>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- SOCIAL MEDIA -->
+                    <h3 class="card-title text-center mt-4">Social Media</h3>
+                    <hr />
+                    <div class="row">
+                        <div class="col-6">
+                            <!-- LINKED IN -->
+                            <div class="form-group">
+                                <label for="linkedIn">LinkedIn</label>
+                                <input type="text" class="form-control" name="linkedIn" placeholder="example@gmail.com" required>
+                            </div>
+                        </div>
+                        <div class="col-6">
+                            <div class="form-group">
+                                <label for="github">GitHub</label>
+                                <input type="text" class="form-control" name="github" placeholder="example@gmail.com" required>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- SKILLS -->
+                    <h3 class="card-title text-center mt-4">Skills</h3>
+                    <hr />
+                    <!-- TODO - Show the added skills here -->
+                    <!-- {{ skills }} -->
+                    <div class="added-skills" *ngFor="let skill of skills">
+                        {{ skill.name }} - 
+                    </div>
+                    <div class="form-group">
+                        <label for="skills">Skills<span class="required">*</span></label>
+                        <div class="row">
+                            <div class="col-10">
+                                <input type="text" [(ngModel)]="skillInput" name="skillInput" class="form-control" #skillName>    
+                            </div>
+                            <div class="col-2">
+                                <button class="btn btn-primary btn-sm mt-2" (click)="addSkill()">+ Add</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- WORK EXPERIENCE -->
+                    <h3 class="card-title text-center mt-4">Work Experience</h3>
+                    <hr />
+                    <div class="row">
+                        <div class="col-6">
+                            <div class="form-group">
+                                <label for="companyName">Company Name</label>
+                                <input type="text" name="companyName" class="form-control" required>
+                            </div>
+                        </div>
+                        <div class="col-6">
+                            <div class="form-group">
+                                <label for="designation">Designation</label>
+                                <input type="text" name="companyName" class="form-control" required>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-6">
+                            <div class="form-group">
+                                <label for="fromDate">From Date</label>
+                                <input type="date" name="fromDate" class="form-control" required>
+                            </div>
+                        </div>
+                        <div class="col-6">
+                            <div class="form-group">
+                                <label for="toDate">To Date</label>
+                                <input type="date" name="toDate" class="form-control" required>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-12">
+                            <div class="form-group">
+                                <label for="workDescription">Description</label>
+                                <textarea name="workDescription" class="form-control" required></textarea>
+                            </div>
+                        </div>
+                    </div>
+
+                    <button class="btn btn-primary form-control" (click)="addCompany()">Add Company</button>
+
+                    <!-- EDUCATION -->
+                    <h3 class="card-title text-center mt-4">Education</h3>
+                    <hr />
+                    <div class="row">
+                        <div class="col-6">
+                            <div class="form-group">
+                                <label for="collegeName">Institution Name</label>
+                                <input type="text" class="form-control" name="collegeName" required>
+                            </div>
+                        </div>
+                        <div class="col-6">
+                            <div class="form-group">
+                                <label for="degree">Degree<span class="required">*</span></label>
+                                <input type="text" class="form-control" name="degree" required>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-6">
+                            <div class="form-group">
+                                <label for="educationFromDate">From Date</label>
+                                <input type="text" class="form-control" name="educationFromDate" required>
+                            </div>
+                        </div>
+                        <div class="col-6">
+                            <div class="form-group">
+                                <label for="educationToDate">To Date</label>
+                                <input type="text" class="form-control" name="educationToDate" required>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-12">
+                            <label for="score">C.G.P.A</label>
+                            <input type="text" name="score" class="form-control" required>
+                        </div>
+                    </div>
+
+                    <button class="form-control btn btn-primary" (click)="addEducation()">Add Education</button>
+
+                    <!-- HOBBIES -->
+                    <h3 class="card-title text-center mt-4">Hobbies</h3>
+                    <hr />
+                    <!-- TODO - Show the added skills here -->
+                    <!-- {{ skills }} -->
+                    <!-- <div class="added-skills" *ngFor="let skill of skills">
+                        {{ skill.name }} - 
+                    </div> -->
+                    <div class="form-group">
+                        <label for="hobbies">Hobbies</label>
+                        <div class="row">
+                            <div class="col-10">
+                                <input type="text" [(ngModel)]="hobby" name="hobby" class="form-control">    
+                            </div>
+                            <div class="col-2">
+                                <button class="btn btn-primary btn-sm mt-2" (click)="addHobbies()">+ Add</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <button class="btn btn-success btn-lg text-center form-control mt-4">Save</button>
+
                 </form>
             </div>
         </div>

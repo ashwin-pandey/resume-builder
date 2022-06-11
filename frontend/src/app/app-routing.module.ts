@@ -9,6 +9,7 @@ import { TemplatesComponent } from './templates/templates.component';
 import { AddComponent } from './resume/add/add.component';
 import { EditComponent } from './resume/edit/edit.component';
 import { ViewComponent } from './resume/view/view.component';
+import { ResumeComponent } from './resume/resume.component';
 
 const routes: Routes = [
   { path: 'login', component: LoginComponent },
@@ -17,7 +18,7 @@ const routes: Routes = [
   { path: 'templates', component: TemplatesComponent },
   { 
     path: 'resume', 
-
+    component: ResumeComponent,
     children: [
       { path: 'add', component: AddComponent },
       { path: 'edit', component: EditComponent },

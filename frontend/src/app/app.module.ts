@@ -15,6 +15,7 @@ import { FooterComponent } from './common/footer/footer.component';
 import { SignupComponent } from './auth/signup/signup.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { PreviewComponent } from './resume/preview/preview.component';
+import { ResumeComponent } from './resume/resume.component';
 
 @NgModule({
   declarations: [
@@ -29,7 +30,8 @@ import { PreviewComponent } from './resume/preview/preview.component';
     HeaderComponent,
     FooterComponent,
     SignupComponent,
-    PreviewComponent
+    PreviewComponent,
+    ResumeComponent
   ],
   imports: [
     BrowserModule,

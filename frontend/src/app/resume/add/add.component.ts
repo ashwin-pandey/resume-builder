@@ -9,7 +9,31 @@ export class AddComponent implements OnInit {
 
   constructor() { }
 
+  skills: any[] = [];
+  skillInput: any = '';
+  hobby: any = '';
+
   ngOnInit(): void {
+    
+  }
+
+  addSkill() {
+    let o = { id: Date.now(), name: this.skillInput };
+    this.skills.push(o);
+    this.skillInput = '';
+    // console.log(this.skills);
+  }
+
+  addCompany() {
+
+  }
+
+  addEducation() {
+
+  }
+
+  addHobbies() {
+
   }
 
 }
