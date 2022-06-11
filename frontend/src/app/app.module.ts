@@ -20,6 +20,7 @@ import { ResumeComponent } from './resume/resume.component';
 import { HttpClientModule, HTTP_INTERCEPTORS } from "@angular/common/http";
 import { ToastrModule } from 'ngx-toastr';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { ResumeOneComponent } from './templates/resume-one/resume-one.component';
 import { LoaderComponent } from './common/loader/loader.component';
 import { ApiInterceptor } from "./interceptor/http.interceptor"
 import { LoaderModule } from './common/loader/loader.module';
@@ -37,7 +38,13 @@ import { LoaderModule } from './common/loader/loader.module';
     FooterComponent,
     SignupComponent,
     PreviewComponent,
+<<<<<<< HEAD
     ResumeComponent],
+=======
+    ResumeComponent,
+    ResumeOneComponent
+  ],
+>>>>>>> develop
   imports: [
     ToastrModule.forRoot({
       iconClasses: {
