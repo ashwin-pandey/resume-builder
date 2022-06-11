@@ -15,7 +15,7 @@ export class FormServiceService {
   }
 
   getResumeById(resumeId: string) {
-    return this._http.get(this.baseUrl + `/resume/${ resumeId }`);
+    return this._http.get(this.baseUrl + `/resume/${resumeId}`);
   }
 
   createResume(templateId: string, resume: any) {
@@ -28,5 +28,7 @@ export class FormServiceService {
     return this._http.put(this.baseUrl + `/resume/${resumeId}`, body);
   }
 
-
+  getAllTemplates() {
+    return this._http.get(this.baseUrl + `/template`);
+  }
 }

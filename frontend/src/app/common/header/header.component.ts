@@ -23,7 +23,7 @@ export class HeaderComponent implements OnInit {
   }
 
   ngOnInit(): void {
-
+    this.isLoggedIn = this._auth.getToken() ? true : false
   }
   onLogout() {
     console.log('in logout');
