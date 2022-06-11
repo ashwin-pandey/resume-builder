@@ -1,3 +1,4 @@
+import { RouterModule } from '@angular/router';
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
@@ -16,9 +17,12 @@ import { SignupComponent } from './auth/signup/signup.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { PreviewComponent } from './resume/preview/preview.component';
 import { ResumeComponent } from './resume/resume.component';
-import { HttpClientModule } from "@angular/common/http";
+import { HttpClientModule, HTTP_INTERCEPTORS } from "@angular/common/http";
 import { ToastrModule } from 'ngx-toastr';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { LoaderComponent } from './common/loader/loader.component';
+import { ApiInterceptor } from "./interceptor/http.interceptor"
+import { LoaderModule } from './common/loader/loader.module';
 @NgModule({
   declarations: [
     AppComponent,
@@ -33,8 +37,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     FooterComponent,
     SignupComponent,
     PreviewComponent,
-    ResumeComponent
-  ],
+    ResumeComponent],
   imports: [
     ToastrModule.forRoot({
       iconClasses: {
@@ -49,9 +52,16 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     AppRoutingModule,
     FormsModule,
     ReactiveFormsModule,
+    LoaderModule,
     BrowserAnimationsModule
   ],
-  providers: [],
+  providers: [
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: ApiInterceptor,
+      multi: true,
+    },
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

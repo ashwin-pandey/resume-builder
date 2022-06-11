@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { LoaderService } from './services/loader.service';
 
 @Component({
   selector: 'app-root',
@@ -6,5 +7,13 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'frontend';
+  title = 'Resume-Builder';
+  isLoading: boolean = false;
+  constructor(private _loader: LoaderService) {
+    this._loader.sendLoading.subscribe(async (res) => {
+      console.log('value in laoder', res);
+
+      this.isLoading = await res;
+    });
+  }
 }
