@@ -3,6 +3,7 @@ const app= express();
 const morgan = require('morgan');
 const bodyParser = require('body-parser');
 const mongoose = require('mongoose');
+const port =process.env.PORT;
 
 // route paths
 // const productRoutes = require('./api/routes/products');
@@ -55,6 +56,11 @@ app.use((error,req,res,next)=>{
             message: error.message
         }
     })
+});
+
+const server = app.listen(port, () => {
+    const address = server.address();
+    console.log(`server listening on port ${address.port}`)
 });
 
 module.exports=app;

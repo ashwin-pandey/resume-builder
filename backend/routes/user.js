@@ -27,7 +27,8 @@ router.post('/signup', (req, res, next) => {
                 
                 if (err) {
                     return res.status(500).json({
-                        error: err
+                        error: err,
+                        message:"No password detected"
                     });
                 }
                 else {
