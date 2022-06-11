@@ -11,13 +11,7 @@ exports.getAllTemplate =  (req,res,next)=>{
     .then(docs =>{
         res.status(200).json({
             count: docs.length,
-            data: docs.map( doc=>{
-                return {
-                    _id : doc.id,
-                    name: doc.name,
-                    category: doc.category
-                }
-            })
+            data: docs
         })
     })
     .catch(err =>{
