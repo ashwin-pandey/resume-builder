@@ -15,9 +15,9 @@ const routes: Routes = [
   { path: 'login', component: LoginComponent },
   { path: 'signup', component: SignupComponent },
   { path: '', component: HomeComponent },
-  { path: 'templates', component: TemplatesComponent },
-  { 
-    path: 'resume', 
+  { path: 'template', component: TemplatesComponent },
+  {
+    path: 'resume',
     component: ResumeComponent,
     children: [
       { path: 'add', component: AddComponent },
@@ -25,7 +25,7 @@ const routes: Routes = [
       { path: 'view', component: ViewComponent }
     ]
   },
-  
+
   { path: '**', component: ErrorComponent }
 ];
 

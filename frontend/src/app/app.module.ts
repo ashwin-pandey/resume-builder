@@ -16,7 +16,9 @@ import { SignupComponent } from './auth/signup/signup.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { PreviewComponent } from './resume/preview/preview.component';
 import { ResumeComponent } from './resume/resume.component';
-
+import { HttpClientModule } from "@angular/common/http";
+import { ToastrModule } from 'ngx-toastr';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 @NgModule({
   declarations: [
     AppComponent,
@@ -34,10 +36,20 @@ import { ResumeComponent } from './resume/resume.component';
     ResumeComponent
   ],
   imports: [
+    ToastrModule.forRoot({
+      iconClasses: {
+        error: 'toast-error',
+        info: 'toast-info',
+        success: 'toast-success',
+        warning: 'toast-warning',
+      }
+    }),
+    HttpClientModule,
     BrowserModule,
     AppRoutingModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    BrowserAnimationsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
