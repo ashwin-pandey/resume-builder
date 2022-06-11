@@ -45,12 +45,13 @@ const userRoutes = require('./routes/user');
 
 // Routes which should handle requests
 // app.use('/products',productRoutes);
+app.use('/user', userRoutes);
 app.use('/template', templateRoutes);
 app.use('/resume', resumeRoutes);
-app.use('/user', userRoutes);
 
 // Error handling
 app.use((req, res, next) => {
+    console.log("Heree");
     const error = new Error('Not Found');
     error.status = 404;
     next(error);

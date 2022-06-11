@@ -9,6 +9,10 @@ router.post('/', checkAuth, resumeCtrl.createResume);
 
 router.get('/:resumeId', checkAuth, resumeCtrl.getResume);
 
-router.delete('/:resumeId', checkAuth, resumeCtrl.deleteResume)
+router.delete('/:resumeId', checkAuth, resumeCtrl.deleteResume);
+
+router.put('/:resumeId/generateQR', checkAuth, resumeCtrl.generateQR);
+
+router.get('/:resumeId/QRLink', checkAuth, resumeCtrl.getQRLink);
 
 module.exports = router;
