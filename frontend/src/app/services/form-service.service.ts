@@ -18,7 +18,12 @@ export class FormServiceService {
     return this._http.get(this.baseUrl + `/resume/${ resumeId }`);
   }
 
-  updateResumeById(resumeId: string, resume:any) {
+  createResume(templateId: string, resume: any) {
+    const body = { resume, templateId };
+    return this._http.post(this.baseUrl + `/resume`, body);
+  }
+
+  updateResumeById(resumeId: string, resume: any) {
     const body = { resume };
     return this._http.put(this.baseUrl + `/resume/${resumeId}`, body);
   }
