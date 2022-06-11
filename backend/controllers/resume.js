@@ -24,8 +24,7 @@ exports.getAllResume = (req, res, next) => {
 }
 
 exports.createResume = (req, res, next) => {
-    let body = req.body;
-    Template.find({ template: body.template, email: body.email })
+    Template.findById({ _id: req.body.templateId })
         .then(template => {
             if (!template) {
                 return res.status(404).json({
@@ -34,7 +33,9 @@ exports.createResume = (req, res, next) => {
             }
             const resume = new Resume({
                 _id: mongoose.Types.ObjectId(),
-                ...body
+                template: template._id,
+                qrGenerated: false,
+                data: req.body.resume
             });
             return resume.save()
         })
@@ -50,7 +51,7 @@ exports.createResume = (req, res, next) => {
         .catch(err => {
             console.log(err);
             return res.status(500).json({
-                message: "Template not found"
+                message: "Something went wrong"
             });
         });
 }
@@ -93,16 +94,15 @@ exports.deleteResume = (req, res, next) => {
 }
 
 exports.updateResume = (req, res, next) => {
-    const { resume } = req.body;
-    Resume.findByIdAndUpdate({_id : req.params.id }, { $set : resume })
+    Resume.findByIdAndUpdate({_id : req.params.resumeId }, { $set : req.body.resume })
     .exec()
-    .then(result =>{
+    .then(result => {
         console.log(result);
         res.status(200).json({
             message: 'Resume Updated'
         })
     })
-    .catch( err =>{
+    .catch( err => {
         console.log(err);
         res.status(500).json({
             error : err
