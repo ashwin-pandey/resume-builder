@@ -5,9 +5,9 @@ const bodyParser = require('body-parser');
 const mongoose = require('mongoose');
 
 // route paths
-const productRoutes = require('./api/routes/products');
-const orderRoutes = require('./api/routes/orders');
-const userRoutes = require('./api/routes/user');
+const productRoutes = require('./routes/products');
+const orderRoutes = require('./routes/orders');
+const userRoutes = require('./routes/user');
 
 // database connection
 mongoose.connect('mongodb+srv://jayb316:' +process.env.MONGO_ATLAS_PW+ '@node-rest-shop-tjblp.mongodb.net/test?retryWrites=true&w=majority',
