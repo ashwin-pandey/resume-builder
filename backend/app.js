@@ -12,7 +12,6 @@ const userRoutes = require('./routes/user');
 // database connection
 mongoose.connect('mongodb+srv://'+process.env.MONGO_USER+':'+process.env.MONGO_ATLAS_PW+'@cluster0.uvymo.mongodb.net/?retryWrites=true&w=majority',
 { useNewUrlParser: true });
-console.log("mongo credds",process.env.MONGO_USER)
 // mongodb+srv://jaybhanushali3166:<password>@cluster0.uvymo.mongodb.net/?retryWrites=true&w=majority
 
 mongoose.Promise = global.Promise;
