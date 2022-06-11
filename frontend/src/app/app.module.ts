@@ -19,6 +19,7 @@ import { ResumeComponent } from './resume/resume.component';
 import { HttpClientModule } from "@angular/common/http";
 import { ToastrModule } from 'ngx-toastr';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { ResumeOneComponent } from './templates/resume-one/resume-one.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -33,7 +34,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     FooterComponent,
     SignupComponent,
     PreviewComponent,
-    ResumeComponent
+    ResumeComponent,
+    ResumeOneComponent
   ],
   imports: [
     ToastrModule.forRoot({

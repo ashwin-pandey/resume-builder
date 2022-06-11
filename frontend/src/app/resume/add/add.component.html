@@ -102,7 +102,7 @@
                     <!-- TODO - Show the added skills here -->
                     <!-- {{ skills }} -->
                     <div class="added-skills" *ngFor="let skill of skills">
-                        {{ skill.name }} - 
+                        {{ skill }}
                     </div>
                     <div class="form-group">
                         <label for="skills">Skills<span class="required">*</span></label>
@@ -123,27 +123,27 @@
                         <div class="col-6">
                             <div class="form-group">
                                 <label for="companyName">Company Name</label>
-                                <input type="text" name="companyName" class="form-control" required>
+                                <input type="text" name="companyName" [(ngModel)]="companyName" class="form-control" required>
                             </div>
                         </div>
                         <div class="col-6">
                             <div class="form-group">
-                                <label for="designation">Designation</label>
-                                <input type="text" name="companyName" class="form-control" required>
+                                <label for="companyDesignation">Designation</label>
+                                <input type="text" name="companyDesignation" [(ngModel)]="companyDesignation" class="form-control" required>
                             </div>
                         </div>
                     </div>
                     <div class="row">
                         <div class="col-6">
                             <div class="form-group">
-                                <label for="fromDate">From Date</label>
-                                <input type="date" name="fromDate" class="form-control" required>
+                                <label for="companyFromDate">From Date</label>
+                                <input type="date" name="companyFromDate" [(ngModel)]="companyFromDate" class="form-control" required>
                             </div>
                         </div>
                         <div class="col-6">
                             <div class="form-group">
-                                <label for="toDate">To Date</label>
-                                <input type="date" name="toDate" class="form-control" required>
+                                <label for="companyToDate">To Date</label>
+                                <input type="date" name="companyToDate" [(ngModel)]="companyToDate" class="form-control" required>
                             </div>
                         </div>
                     </div>
@@ -151,8 +151,8 @@
                     <div class="row">
                         <div class="col-12">
                             <div class="form-group">
-                                <label for="workDescription">Description</label>
-                                <textarea name="workDescription" class="form-control" required></textarea>
+                                <label for="companyDescription">Description</label>
+                                <textarea name="companyDescription" [(ngModel)]="companyDescription" class="form-control"></textarea>
                             </div>
                         </div>
                     </div>
@@ -165,14 +165,14 @@
                     <div class="row">
                         <div class="col-6">
                             <div class="form-group">
-                                <label for="collegeName">Institution Name</label>
-                                <input type="text" class="form-control" name="collegeName" required>
+                                <label for="institutionName">Institution Name</label>
+                                <input type="text" class="form-control" [(ngModel)]="institutionName" name="institutionName" required>
                             </div>
                         </div>
                         <div class="col-6">
                             <div class="form-group">
                                 <label for="degree">Degree<span class="required">*</span></label>
-                                <input type="text" class="form-control" name="degree" required>
+                                <input type="text" class="form-control" [(ngModel)]="institutionDegree" name="degree" required>
                             </div>
                         </div>
                     </div>
@@ -180,20 +180,20 @@
                         <div class="col-6">
                             <div class="form-group">
                                 <label for="educationFromDate">From Date</label>
-                                <input type="text" class="form-control" name="educationFromDate" required>
+                                <input type="date" [(ngModel)]="institutionStartDate" class="form-control" name="institutionStartDate" required>
                             </div>
                         </div>
                         <div class="col-6">
                             <div class="form-group">
                                 <label for="educationToDate">To Date</label>
-                                <input type="text" class="form-control" name="educationToDate" required>
+                                <input type="date" [(ngModel)]="institutionEndDate" class="form-control" name="institutionEndDate" required>
                             </div>
                         </div>
                     </div>
                     <div class="row">
                         <div class="col-12">
-                            <label for="score">C.G.P.A</label>
-                            <input type="text" name="score" class="form-control" required>
+                            <label for="institutionScore">C.G.P.A</label>
+                            <input type="text" [(ngModel)]="institutionScore" name="institutionScore" class="form-control" required>
                         </div>
                     </div>
 
@@ -204,8 +204,8 @@
                     <hr />
                     <!-- TODO - Show the added skills here -->
                     <!-- {{ skills }} -->
-                    <div class="added-skills" *ngFor="let hobby of skills">
-                        {{ hobby.name }} - 
+                    <div class="added-skills" *ngFor="let hobby of hobbies">
+                        {{ hobby }}
                     </div>
                     <div class="form-group">
                         <label for="hobbies">Hobbies</label>
@@ -219,7 +219,7 @@
                         </div>
                     </div>
 
-                    <button class="btn btn-success btn-lg text-center form-control mt-4">Save</button>
+                    <button class="btn btn-success btn-lg text-center form-control mt-4" (click)="saveDetails()">Save</button>
 
                 </form>
             </div>

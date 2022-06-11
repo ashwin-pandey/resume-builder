@@ -21,8 +21,7 @@ const routes: Routes = [
     component: ResumeComponent,
     children: [
       { path: 'add', component: AddComponent },
-      { path: 'edit', component: EditComponent },
-      { path: 'view', component: ViewComponent }
+      { path: 'edit', component: EditComponent }
     ]
   },
 
