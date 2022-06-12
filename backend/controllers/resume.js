@@ -25,6 +25,7 @@ exports.getAllResume = (req, res, next) => {
 
 exports.createResume = (req, res, next) => {
     Template.findById({ _id: req.body.templateId })
+        .exec()
         .then(template => {
             if (!template) {
                 return res.status(404).json({
@@ -95,7 +96,7 @@ exports.deleteResume = (req, res, next) => {
 }
 
 exports.updateResume = (req, res, next) => {
-    Resume.findByIdAndUpdate({_id : req.params.resumeId }, { resume : req.body.resume })
+    Resume.findByIdAndUpdate({_id : req.params.resumeId }, { data : req.body.resume })
     .exec()
     .then(result => {
         console.log(result);
