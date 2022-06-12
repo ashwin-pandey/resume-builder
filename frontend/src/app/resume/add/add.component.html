@@ -10,13 +10,13 @@
                         <div class="col-6">
                             <div class="form-group">
                                 <label for="firstName">First Name<span class="required">*</span></label>
-                                <input type="text" class="form-control" name="firstName" placeholder="John" required>
+                                <input type="text" class="form-control" [(ngModel)]="firstName" name="firstName" placeholder="John" required>
                             </div>
                         </div>
                         <div class="col-6">
                             <div class="form-group">
                                 <label for="lastName">Last Name<span class="required">*</span></label>
-                                <input type="text" class="form-control" name="lastName" placeholder="Doe" required>
+                                <input type="text" class="form-control" [(ngModel)]="lastName" name="lastName" placeholder="Doe" required>
                             </div>
                         </div>
                     </div>
@@ -26,7 +26,7 @@
                         <div class="col-12">
                             <div class="form-group">
                                 <label for="currentDesignation">Current Designation<span class="required">*</span></label>
-                                <input type="text" class="form-control" name="designation" placeholder="Software Developer" required>
+                                <input type="text" class="form-control" [(ngModel)]="designation" name="designation" placeholder="Software Developer" required>
                             </div>
                         </div>
                     </div>
@@ -36,7 +36,7 @@
                         <div class="col-12">
                             <div class="form-group">
                                 <label for="introduction">Short Description<span class="required">*</span></label>
-                                <textarea name="introduction" class="form-control" id="" cols="30" rows="2" required></textarea>
+                                <textarea name="introduction" class="form-control" [(ngModel)]="introduction" id="" cols="30" rows="2" required></textarea>
                             </div>
                         </div>
                     </div>
@@ -47,14 +47,14 @@
                             <!-- EMAIL -->
                             <div class="form-group">
                                 <label for="email">Email<span class="required">*</span></label>
-                                <input type="email" class="form-control" name="email" placeholder="example@gmail.com" required>
+                                <input type="email" class="form-control" name="email" [(ngModel)]="email" placeholder="example@gmail.com" required>
                             </div>
                         </div>
                         <div class="col-6">
                             <!-- PHONE NUMBER -->
                             <div class="form-group">
                                 <label for="phoneNumber">Phone Number<span class="required">*</span></label>
-                                <input type="text" class="form-control" name="phoneNumber" placeholder="example@gmail.com" required>
+                                <input type="text" class="form-control" name="phone" [(ngModel)]="phone" placeholder="" required>
                             </div>
                         </div>
                     </div>
@@ -65,14 +65,14 @@
                             <!-- CITY -->
                             <div class="form-group">
                                 <label for="city">City<span class="required">*</span></label>
-                                <input type="text" class="form-control" name="city" placeholder="example@gmail.com" required>
+                                <input type="text" class="form-control" name="city" [(ngModel)]="city" placeholder="" required>
                             </div>
                         </div>
                         <div class="col-6">
                             <!-- STATE -->
                             <div class="form-group">
                                 <label for="state">State<span class="required">*</span></label>
-                                <input type="text" class="form-control" name="state" placeholder="example@gmail.com" required>
+                                <input type="text" class="form-control" name="state" [(ngModel)]="state" placeholder="" required>
                             </div>
                         </div>
                     </div>
@@ -85,13 +85,13 @@
                             <!-- LINKED IN -->
                             <div class="form-group">
                                 <label for="linkedIn">LinkedIn</label>
-                                <input type="text" class="form-control" name="linkedIn" placeholder="example@gmail.com" required>
+                                <input type="text" class="form-control" name="linkedIn" [(ngModel)]="linkedIn" placeholder="example@gmail.com" required>
                             </div>
                         </div>
                         <div class="col-6">
                             <div class="form-group">
                                 <label for="github">GitHub</label>
-                                <input type="text" class="form-control" name="github" placeholder="example@gmail.com" required>
+                                <input type="text" class="form-control" name="github" [(ngModel)]="github" placeholder="example@gmail.com" required>
                             </div>
                         </div>
                     </div>
@@ -119,6 +119,8 @@
                     <!-- WORK EXPERIENCE -->
                     <h3 class="card-title text-center mt-4">Work Experience</h3>
                     <hr />
+
+
                     <div class="row">
                         <div class="col-6">
                             <div class="form-group">
