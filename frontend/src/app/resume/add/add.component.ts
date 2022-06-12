@@ -14,15 +14,16 @@ import { Router } from '@angular/router';
 })
 export class AddComponent implements OnInit {
 
-  constructor(private formService: FormServiceService, 
+  constructor(private formService: FormServiceService,
     private authService: AuthService,
     private router: Router) { }
 
   // Personal Details
+  resumeName: any = 'Sample';
   firstName: any = '';
   lastName: any = '';
   email: any = '';
-  designation: any = ''; 
+  designation: any = '';
   phone: any = '';
   city: any = '';
   state: any = '';
@@ -54,7 +55,7 @@ export class AddComponent implements OnInit {
 
 
   ngOnInit(): void {
-    
+
   }
 
   addSkill() {
@@ -75,7 +76,7 @@ export class AddComponent implements OnInit {
 
     // add work experience into the array
     this.workExperience.push(experience);
-    
+
     console.log(this.workExperience);
 
     // reset
@@ -94,7 +95,7 @@ export class AddComponent implements OnInit {
       to: this.institutionEndDate,
       score: this.institutionScore
     };
-    
+
     this.education.push(education);
 
     console.log(this.education);
@@ -131,12 +132,14 @@ export class AddComponent implements OnInit {
 
     console.log(resume);
     let templateId = this.formService.getTemplateId();
-    let userId = this.authService.getUserId();
-    
+    let userId: any = this.authService.getUserId();
+
     let resumeId;
-    this.formService.createResume(templateId, resume, userId).subscribe({
+    this.formService.createResume(templateId, resume, userId, this.resumeName).subscribe({
       next: (response: any) => {
-        resumeId = response.createdResponse._id
+        resumeId = response.createdResume._id;
+        console.log("resume id ", resumeId, `template/${templateId}/resume/${resumeId}`);
+
         this.router.navigate([`template/${templateId}/resume/${resumeId}`]);
       }
     });

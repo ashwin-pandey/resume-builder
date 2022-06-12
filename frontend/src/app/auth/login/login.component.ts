@@ -54,10 +54,10 @@ export class LoginComponent implements OnInit {
       next: (res: any) => {
         if (res) {
           this._auth.isLoggedIn.next(true);
-          this._router.navigate(['/template'])
           this.toastr.success("Login Successful!!!");
           this._auth.setToken(res.token);
           this._auth.setUserId(res.userId);
+          this._router.navigate(['/template'])
         }
       },
       error: (error) => {
@@ -70,9 +70,10 @@ export class LoginComponent implements OnInit {
       next: (res: any) => {
         if (res) {
           this._auth.isLoggedIn.next(true);
-          this._auth.setToken(res.token);
           this.toastr.success("Signup Successful!!!");
-          this._router.navigate(['/template'])
+          this._auth.setToken(res.token);
+          this._auth.setUserId(res.userId);
+          this._router.navigate(['/template']);
         }
       },
       error: (error) => {

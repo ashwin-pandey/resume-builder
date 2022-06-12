@@ -36,5 +36,8 @@ export class HeaderComponent implements OnInit {
     localStorage.clear();
     this._router.navigate(['/']);
   }
+  viewResume() {
+    this._router.navigate(['/resume/view'])
+  }
 
 }

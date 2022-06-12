@@ -11,16 +11,17 @@ export class FormServiceService {
   templateId: string = '';
   constructor(private _http: HttpClient) { }
 
-  getAllResumes() {
-    return this._http.get(this.baseUrl + `/resume`);
+  getAllResumes(userId: any) {
+    const params = { userId };
+    return this._http.get(this.baseUrl + `/resume`, { params });
   }
 
   getResumeById(resumeId: string) {
     return this._http.get(this.baseUrl + `/resume/${resumeId}`);
   }
 
-  createResume(templateId: string, resume: any, userId: string) {
-    const body = { resume, templateId, userId };
+  createResume(templateId: string, resume: any, userId: string, resumeName: string) {
+    const body = { resume, templateId, userId, resumeName };
     return this._http.post(this.baseUrl + `/resume`, body);
   }
 
@@ -41,4 +42,10 @@ export class FormServiceService {
   }
 
 
+  generateQR(userId: any, resumeId: any) {
+    return this._http.put(this.baseUrl + `/resume/${resumeId}/generateQR`, { userId, resumeId });
+  }
+  getQRLink(resumeId: any) {
+    return this._http.get(this.baseUrl + `/resume/${resumeId}/QRLink`);
+  }
 }

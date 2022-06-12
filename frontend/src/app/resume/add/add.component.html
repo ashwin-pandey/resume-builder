@@ -1,88 +1,173 @@
 <div class="row">
-    <div class="col-12">
-        <div class="card">
-            <div class="card-body">
-                <form action="">
-                    <h3 class="card-title text-center mt-4">Personal Details</h3>
-                    <hr />
-                    <!-- NAME -->
-                    <div class="row">
-                        <div class="col-6">
-                            <div class="form-group">
-                                <label for="firstName">First Name<span class="required">*</span></label>
-                                <input type="text" class="form-control" [(ngModel)]="firstName" name="firstName" placeholder="John" required>
-                            </div>
-                        </div>
-                        <div class="col-6">
-                            <div class="form-group">
-                                <label for="lastName">Last Name<span class="required">*</span></label>
-                                <input type="text" class="form-control" [(ngModel)]="lastName" name="lastName" placeholder="Doe" required>
-                            </div>
-                        </div>
-                    </div>
+  <div class="col-12">
+    <div class="card">
+      <div class="card-body">
+        <form action="">
+          <div class="row">
+            <div class="col-12">
+              <div class="form-group">
+                <label for="firstName"
+                  >Resume Name<span class="required">*</span></label
+                >
+                <input
+                  type="text"
+                  class="form-control"
+                  [(ngModel)]="resumeName"
+                  name="resName"
+                  placeholder="Resume-sample"
+                  required
+                />
+              </div>
+            </div>
+          </div>
+          <hr />
+          <h3 class="card-title text-center mt-4">Personal Details</h3>
+          <hr />
 
-                    <!-- DESIGNATION -->
-                    <div class="row">
-                        <div class="col-12">
-                            <div class="form-group">
-                                <label for="currentDesignation">Current Designation<span class="required">*</span></label>
-                                <input type="text" class="form-control" [(ngModel)]="designation" name="designation" placeholder="Software Developer" required>
-                            </div>
-                        </div>
-                    </div>
+          <!-- NAME -->
+          <div class="row">
+            <div class="col-6">
+              <div class="form-group">
+                <label for="firstName"
+                  >First Name<span class="required">*</span></label
+                >
+                <input
+                  type="text"
+                  class="form-control"
+                  [(ngModel)]="firstName"
+                  name="firstName"
+                  placeholder="John"
+                  required
+                />
+              </div>
+            </div>
+            <div class="col-6">
+              <div class="form-group">
+                <label for="lastName"
+                  >Last Name<span class="required">*</span></label
+                >
+                <input
+                  type="text"
+                  class="form-control"
+                  [(ngModel)]="lastName"
+                  name="lastName"
+                  placeholder="Doe"
+                  required
+                />
+              </div>
+            </div>
+          </div>
 
-                    <!-- INTRODUCTION -->
-                    <div class="row">
-                        <div class="col-12">
-                            <div class="form-group">
-                                <label for="introduction">Short Description<span class="required">*</span></label>
-                                <textarea name="introduction" class="form-control" [(ngModel)]="introduction" id="" cols="30" rows="2" required></textarea>
-                            </div>
-                        </div>
-                    </div>
+          <!-- DESIGNATION -->
+          <div class="row">
+            <div class="col-12">
+              <div class="form-group">
+                <label for="currentDesignation"
+                  >Current Designation<span class="required">*</span></label
+                >
+                <input
+                  type="text"
+                  class="form-control"
+                  [(ngModel)]="designation"
+                  name="designation"
+                  placeholder="Software Developer"
+                  required
+                />
+              </div>
+            </div>
+          </div>
 
-                    <!-- CONTACT -->
-                    <div class="row">
-                        <div class="col-6">
-                            <!-- EMAIL -->
-                            <div class="form-group">
-                                <label for="email">Email<span class="required">*</span></label>
-                                <input type="email" class="form-control" name="email" [(ngModel)]="email" placeholder="example@gmail.com" required>
-                            </div>
-                        </div>
-                        <div class="col-6">
-                            <!-- PHONE NUMBER -->
-                            <div class="form-group">
-                                <label for="phoneNumber">Phone Number<span class="required">*</span></label>
-                                <input type="text" class="form-control" name="phone" [(ngModel)]="phone" placeholder="" required>
-                            </div>
-                        </div>
-                    </div>
+          <!-- INTRODUCTION -->
+          <div class="row">
+            <div class="col-12">
+              <div class="form-group">
+                <label for="introduction"
+                  >Short Description<span class="required">*</span></label
+                >
+                <textarea
+                  name="introduction"
+                  class="form-control"
+                  [(ngModel)]="introduction"
+                  id=""
+                  cols="30"
+                  rows="2"
+                  required
+                ></textarea>
+              </div>
+            </div>
+          </div>
 
-                    <!-- ADDRESS -->
-                    <div class="row">
-                        <div class="col-6">
-                            <!-- CITY -->
-                            <div class="form-group">
-                                <label for="city">City<span class="required">*</span></label>
-                                <input type="text" class="form-control" name="city" [(ngModel)]="city" placeholder="" required>
-                            </div>
-                        </div>
-                        <div class="col-6">
-                            <!-- STATE -->
-                            <div class="form-group">
-                                <label for="state">State<span class="required">*</span></label>
-                                <input type="text" class="form-control" name="state" [(ngModel)]="state" placeholder="" required>
-                            </div>
-                        </div>
-                    </div>
+          <!-- CONTACT -->
+          <div class="row">
+            <div class="col-6">
+              <!-- EMAIL -->
+              <div class="form-group">
+                <label for="email">Email<span class="required">*</span></label>
+                <input
+                  type="email"
+                  class="form-control"
+                  name="email"
+                  [(ngModel)]="email"
+                  placeholder="example@gmail.com"
+                  required
+                />
+              </div>
+            </div>
+            <div class="col-6">
+              <!-- PHONE NUMBER -->
+              <div class="form-group">
+                <label for="phoneNumber"
+                  >Phone Number<span class="required">*</span></label
+                >
+                <input
+                  type="text"
+                  class="form-control"
+                  name="phone"
+                  [(ngModel)]="phone"
+                  placeholder=""
+                  required
+                />
+              </div>
+            </div>
+          </div>
 
-                    <!-- SOCIAL MEDIA -->
-                    <h3 class="card-title text-center mt-4">Social Media</h3>
-                    <hr />
-                    <div class="row">
+          <!-- ADDRESS -->
+          <div class="row">
+            <div class="col-6">
+              <!-- CITY -->
+              <div class="form-group">
+                <label for="city">City<span class="required">*</span></label>
+                <input
+                  type="text"
+                  class="form-control"
+                  name="city"
+                  [(ngModel)]="city"
+                  placeholder=""
+                  required
+                />
+              </div>
+            </div>
+            <div class="col-6">
+              <!-- STATE -->
+              <div class="form-group">
+                <label for="state">State<span class="required">*</span></label>
+                <input
+                  type="text"
+                  class="form-control"
+                  name="state"
+                  [(ngModel)]="state"
+                  placeholder=""
+                  required
+                />
+              </div>
+            </div>
+          </div>
+
+          <!-- SOCIAL MEDIA -->
+          <h3 class="card-title text-center mt-4">Social Media</h3>
+          <hr />
+          <!-- <div class="row">
                         <div class="col-6">
-                            <!-- LINKED IN -->
                             <div class="form-group">
                                 <label for="linkedIn">LinkedIn</label>
                                 <input type="text" class="form-control" name="linkedIn" [(ngModel)]="linkedIn" placeholder="example@gmail.com" required>
@@ -94,137 +179,225 @@
                                 <input type="text" class="form-control" name="github" [(ngModel)]="github" placeholder="example@gmail.com" required>
                             </div>
                         </div>
-                    </div>
+                    </div> -->
 
-                    <!-- SKILLS -->
-                    <h3 class="card-title text-center mt-4">Skills</h3>
-                    <hr />
-                    <!-- TODO - Show the added skills here -->
-                    <!-- {{ skills }} -->
-                    <div class="added-skills" *ngFor="let skill of skills">
-                        {{ skill }}
-                    </div>
-                    <div class="form-group">
-                        <label for="skills">Skills<span class="required">*</span></label>
-                        <div class="row">
-                            <div class="col-10">
-                                <input type="text" [(ngModel)]="skillInput" name="skillInput" class="form-control" #skillName>    
-                            </div>
-                            <div class="col-2">
-                                <button class="btn btn-primary btn-sm mt-2" (click)="addSkill()">+ Add</button>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- WORK EXPERIENCE -->
-                    <h3 class="card-title text-center mt-4">Work Experience</h3>
-                    <hr />
-
-
-                    <div class="row">
-                        <div class="col-6">
-                            <div class="form-group">
-                                <label for="companyName">Company Name</label>
-                                <input type="text" name="companyName" [(ngModel)]="companyName" class="form-control" required>
-                            </div>
-                        </div>
-                        <div class="col-6">
-                            <div class="form-group">
-                                <label for="companyDesignation">Designation</label>
-                                <input type="text" name="companyDesignation" [(ngModel)]="companyDesignation" class="form-control" required>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-6">
-                            <div class="form-group">
-                                <label for="companyFromDate">From Date</label>
-                                <input type="date" name="companyFromDate" [(ngModel)]="companyFromDate" class="form-control" required>
-                            </div>
-                        </div>
-                        <div class="col-6">
-                            <div class="form-group">
-                                <label for="companyToDate">To Date</label>
-                                <input type="date" name="companyToDate" [(ngModel)]="companyToDate" class="form-control" required>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="row">
-                        <div class="col-12">
-                            <div class="form-group">
-                                <label for="companyDescription">Description</label>
-                                <textarea name="companyDescription" [(ngModel)]="companyDescription" class="form-control"></textarea>
-                            </div>
-                        </div>
-                    </div>
-
-                    <button class="btn btn-primary form-control" (click)="addCompany()">Add Company</button>
-
-                    <!-- EDUCATION -->
-                    <h3 class="card-title text-center mt-4">Education</h3>
-                    <hr />
-                    <div class="row">
-                        <div class="col-6">
-                            <div class="form-group">
-                                <label for="institutionName">Institution Name</label>
-                                <input type="text" class="form-control" [(ngModel)]="institutionName" name="institutionName" required>
-                            </div>
-                        </div>
-                        <div class="col-6">
-                            <div class="form-group">
-                                <label for="degree">Degree<span class="required">*</span></label>
-                                <input type="text" class="form-control" [(ngModel)]="institutionDegree" name="degree" required>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-6">
-                            <div class="form-group">
-                                <label for="educationFromDate">From Date</label>
-                                <input type="date" [(ngModel)]="institutionStartDate" class="form-control" name="institutionStartDate" required>
-                            </div>
-                        </div>
-                        <div class="col-6">
-                            <div class="form-group">
-                                <label for="educationToDate">To Date</label>
-                                <input type="date" [(ngModel)]="institutionEndDate" class="form-control" name="institutionEndDate" required>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-12">
-                            <label for="institutionScore">C.G.P.A</label>
-                            <input type="text" [(ngModel)]="institutionScore" name="institutionScore" class="form-control" required>
-                        </div>
-                    </div>
-
-                    <button class="form-control btn btn-primary" (click)="addEducation()">Add Education</button>
-
-                    <!-- HOBBIES -->
-                    <h3 class="card-title text-center mt-4">Hobbies</h3>
-                    <hr />
-                    <!-- TODO - Show the added skills here -->
-                    <!-- {{ skills }} -->
-                    <div class="added-skills" *ngFor="let hobby of hobbies">
-                        {{ hobby }}
-                    </div>
-                    <div class="form-group">
-                        <label for="hobbies">Hobbies</label>
-                        <div class="row">
-                            <div class="col-10">
-                                <input type="text" [(ngModel)]="hobby" name="hobby" class="form-control">    
-                            </div>
-                            <div class="col-2">
-                                <button class="btn btn-primary btn-sm mt-2" (click)="addHobbies()">+ Add</button>
-                            </div>
-                        </div>
-                    </div>
-
-                    <button class="btn btn-success btn-lg text-center form-control mt-4" (click)="saveDetails()">Save</button>
-
-                </form>
+          <!-- SKILLS -->
+          <h3 class="card-title text-center mt-4">Skills</h3>
+          <hr />
+          <!-- TODO - Show the added skills here -->
+          <!-- {{ skills }} -->
+          <div class="added-skills" *ngFor="let skill of skills">
+            {{ skill }}
+          </div>
+          <div class="form-group">
+            <label for="skills">Skills<span class="required">*</span></label>
+            <div class="row">
+              <div class="col-10">
+                <input
+                  type="text"
+                  [(ngModel)]="skillInput"
+                  name="skillInput"
+                  class="form-control"
+                  #skillName
+                />
+              </div>
+              <div class="col-2">
+                <button
+                  class="btn btn-primary btn-sm mt-2"
+                  (click)="addSkill()"
+                >
+                  + Add
+                </button>
+              </div>
             </div>
-        </div>
+          </div>
+
+          <!-- WORK EXPERIENCE -->
+          <h3 class="card-title text-center mt-4">Work Experience</h3>
+          <hr />
+
+          <div class="row">
+            <div class="col-6">
+              <div class="form-group">
+                <label for="companyName">Company Name</label>
+                <input
+                  type="text"
+                  name="companyName"
+                  [(ngModel)]="companyName"
+                  class="form-control"
+                  required
+                />
+              </div>
+            </div>
+            <div class="col-6">
+              <div class="form-group">
+                <label for="companyDesignation">Designation</label>
+                <input
+                  type="text"
+                  name="companyDesignation"
+                  [(ngModel)]="companyDesignation"
+                  class="form-control"
+                  required
+                />
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-6">
+              <div class="form-group">
+                <label for="companyFromDate">From Date</label>
+                <input
+                  type="date"
+                  name="companyFromDate"
+                  [(ngModel)]="companyFromDate"
+                  class="form-control"
+                  required
+                />
+              </div>
+            </div>
+            <div class="col-6">
+              <div class="form-group">
+                <label for="companyToDate">To Date</label>
+                <input
+                  type="date"
+                  name="companyToDate"
+                  [(ngModel)]="companyToDate"
+                  class="form-control"
+                  required
+                />
+              </div>
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="col-12">
+              <div class="form-group">
+                <label for="companyDescription">Description</label>
+                <textarea
+                  name="companyDescription"
+                  [(ngModel)]="companyDescription"
+                  class="form-control"
+                ></textarea>
+              </div>
+            </div>
+          </div>
+
+          <button class="btn btn-primary form-control" (click)="addCompany()">
+            Add Company
+          </button>
+
+          <!-- EDUCATION -->
+          <h3 class="card-title text-center mt-4">Education</h3>
+          <hr />
+          <div class="row">
+            <div class="col-6">
+              <div class="form-group">
+                <label for="institutionName">Institution Name</label>
+                <input
+                  type="text"
+                  class="form-control"
+                  [(ngModel)]="institutionName"
+                  name="institutionName"
+                  required
+                />
+              </div>
+            </div>
+            <div class="col-6">
+              <div class="form-group">
+                <label for="degree"
+                  >Degree<span class="required">*</span></label
+                >
+                <input
+                  type="text"
+                  class="form-control"
+                  [(ngModel)]="institutionDegree"
+                  name="degree"
+                  required
+                />
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-6">
+              <div class="form-group">
+                <label for="educationFromDate">From Date</label>
+                <input
+                  type="date"
+                  [(ngModel)]="institutionStartDate"
+                  class="form-control"
+                  name="institutionStartDate"
+                  required
+                />
+              </div>
+            </div>
+            <div class="col-6">
+              <div class="form-group">
+                <label for="educationToDate">To Date</label>
+                <input
+                  type="date"
+                  [(ngModel)]="institutionEndDate"
+                  class="form-control"
+                  name="institutionEndDate"
+                  required
+                />
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-12">
+              <label for="institutionScore">C.G.P.A</label>
+              <input
+                type="text"
+                [(ngModel)]="institutionScore"
+                name="institutionScore"
+                class="form-control"
+                required
+              />
+            </div>
+          </div>
+
+          <button class="form-control btn btn-primary" (click)="addEducation()">
+            Add Education
+          </button>
+
+          <!-- HOBBIES -->
+          <h3 class="card-title text-center mt-4">Hobbies</h3>
+          <hr />
+          <!-- TODO - Show the added skills here -->
+          <!-- {{ skills }} -->
+          <div class="added-skills" *ngFor="let hobby of hobbies">
+            {{ hobby }}
+          </div>
+          <div class="form-group">
+            <label for="hobbies">Hobbies</label>
+            <div class="row">
+              <div class="col-10">
+                <input
+                  type="text"
+                  [(ngModel)]="hobby"
+                  name="hobby"
+                  class="form-control"
+                />
+              </div>
+              <div class="col-2">
+                <button
+                  class="btn btn-primary btn-sm mt-2"
+                  (click)="addHobbies()"
+                >
+                  + Add
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <button
+            class="btn btn-success btn-lg text-center form-control mt-4"
+            (click)="saveDetails()"
+          >
+            Save
+          </button>
+        </form>
+      </div>
     </div>
+  </div>
 </div>
