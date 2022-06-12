@@ -5,7 +5,7 @@ const bodyParser = require('body-parser');
 const mongoose = require('mongoose');
 const port = process.env.PORT;
 const cors = require('cors');
-
+const path = require('path');
 
 // database connection
 mongoose.connect('mongodb+srv://' + process.env.MONGO_USER + ':' + process.env.MONGO_ATLAS_PW + '@cluster0.uvymo.mongodb.net/?retryWrites=true&w=majority',
@@ -21,7 +21,7 @@ app.use(cors());
 app.use(morgan('dev'));
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
-app.use('/uploads', express.static('uploads'));
+app.use(express.static(path.join(__dirname, 'dist')));
 
 // CORS error preventions
 // app.use((req, res, next) => {
@@ -68,7 +68,7 @@ app.use((error, req, res, next) => {
 
 const server = app.listen(port, () => {
     const address = server.address();
-    console.log(`server listening on port ${address.port}`)
+    console.log(`server listening on port ${address.port} , ENV PORT - ${port}`)
 });
 
 module.exports = app;
