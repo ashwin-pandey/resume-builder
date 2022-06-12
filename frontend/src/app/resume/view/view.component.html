@@ -1,1 +1,44 @@
-<p>view works!</p>
+<div id="card_container">
+  <!-- A div with card class for the card  -->
+  <div class="card" *ngFor="let resume of resumes">
+    <img
+      class="img-responsive"
+      src="https://images.unsplash.com/photo-1536323760109-ca8c07450053"
+      alt="Lago di Braies"
+    />
+
+    <!-- A div with card__details class to hold the details in the card  -->
+    <div class="card__details">
+      <!-- Span with tag class for the tag -->
+
+      <!-- A div with name class for the name of the card -->
+      <div class="name d-flex justify-content-center">
+        {{ resume.name }}
+      </div>
+
+      <p>
+        {{ resume.data.introduction }}
+      </p>
+
+      <div class="d-flex flex-row justify-content-center">
+        <!-- <div class=""> -->
+        <button
+          type="button"
+          (click)="viewResume(resume.template._id, resume._id)"
+        >
+          View
+        </button>
+
+        <button
+          type="button"
+          data-toggle="modal"
+          data-target="#generateQR"
+          (click)="generateQR(resume.template._id, resume._id)"
+        >
+          Generate QR
+        </button>
+        <!-- </div> -->
+      </div>
+    </div>
+  </div>
+</div>
