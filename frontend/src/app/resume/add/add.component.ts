@@ -4,6 +4,8 @@ import { Experience } from 'src/app/models/experience.model';
 import { Skills } from 'src/app/models/skills.model';
 import { Resume } from 'src/app/models/resume.model';
 import { FormServiceService } from 'src/app/services/form-service.service';
+import { AuthService } from 'src/app/services/auth.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-add',
@@ -12,7 +14,9 @@ import { FormServiceService } from 'src/app/services/form-service.service';
 })
 export class AddComponent implements OnInit {
 
-  constructor(private formService: FormServiceService) { }
+  constructor(private formService: FormServiceService, 
+    private authService: AuthService,
+    private router: Router) { }
 
   // Personal Details
   firstName: any = '';
@@ -22,6 +26,7 @@ export class AddComponent implements OnInit {
   phone: any = '';
   city: any = '';
   state: any = '';
+  introduction: any = '';
 
   // Skills
   skills: Skills[] = [];
@@ -120,10 +125,22 @@ export class AddComponent implements OnInit {
       experience: this.workExperience,
       phone: this.phone,
       skills: this.skills,
-      hobbies: this.hobbies
+      hobbies: this.hobbies,
+      introduction: this.introduction
     };
 
     console.log(resume);
+    let templateId = this.formService.getTemplateId();
+    let userId = this.authService.getUserId();
+    
+    let resumeId;
+    this.formService.createResume(templateId, resume, userId).subscribe({
+      next: (response: any) => {
+        resumeId = response.createdResponse._id
+        this.router.navigate([`template/${templateId}/resume/${resumeId}`]);
+      }
+    });
+
   }
 
 }

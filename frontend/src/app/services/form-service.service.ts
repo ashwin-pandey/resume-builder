@@ -8,6 +8,7 @@ import { environment } from 'src/environments/environment';
 export class FormServiceService {
 
   baseUrl: string = environment.baseUrl;
+  templateId: string = '';
   constructor(private _http: HttpClient) { }
 
   getAllResumes() {
@@ -18,14 +19,22 @@ export class FormServiceService {
     return this._http.get(this.baseUrl + `/resume/${ resumeId }`);
   }
 
-  createResume(templateId: string, resume: any) {
-    const body = { resume, templateId };
+  createResume(templateId: string, resume: any, userId: string) {
+    const body = { resume, templateId, userId };
     return this._http.post(this.baseUrl + `/resume`, body);
   }
 
   updateResumeById(resumeId: string, resume: any) {
     const body = { resume };
     return this._http.put(this.baseUrl + `/resume/${resumeId}`, body);
+  }
+
+  getTemplateId() {
+    return this.templateId;
+  }
+
+  setTemplateId(templateId: string) {
+    this.templateId = templateId;
   }
 
 

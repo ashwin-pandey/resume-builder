@@ -6,6 +6,7 @@ import { Skills } from "./skills.model"
 export interface Resume {
     firstName: String,
     lastName: String,
+    introduction: String,
     email: { type: String, required: true },
     designation: { type: String, required: true },
     phone: { type: Number, required: true },
