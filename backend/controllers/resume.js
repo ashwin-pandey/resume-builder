@@ -95,7 +95,7 @@ exports.deleteResume = (req, res, next) => {
 }
 
 exports.updateResume = (req, res, next) => {
-    Resume.findByIdAndUpdate({_id : req.params.resumeId }, { $set : req.body.resume })
+    Resume.findByIdAndUpdate({_id : req.params.resumeId }, { resume : req.body.resume })
     .exec()
     .then(result => {
         console.log(result);
@@ -143,7 +143,7 @@ exports.getQRLink = (req, res, next) => {
                 })
             }
             res.status(200).json({
-                data: `${req.protocol}://${req.get('host')}/QRLink/${req.params.resumeId}`
+                data: `${req.protocol}://${req.get('host')}/template/${resume.template}/resume/${resume._id}`
             })
         })
         .catch(err => {
