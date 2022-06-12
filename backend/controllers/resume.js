@@ -4,9 +4,10 @@ const url = process.env.url;
 const mongoose = require('mongoose');
 
 exports.getAllResume = (req, res, next) => {
-    Resume.find()
+    Resume.find({ user: req.query.userId })
         // .select('product quantity _id')
         // .populate('product','name')
+        .populate('template')
         .exec()
         .then(docs => {
             res.status(200).json({
@@ -36,6 +37,7 @@ exports.createResume = (req, res, next) => {
                 _id: mongoose.Types.ObjectId(),
                 template: template._id,
                 user: req.body.userId,
+                name: req.body.resumeName,
                 qrGenerated: false,
                 data: req.body.resume
             });
@@ -68,9 +70,7 @@ exports.getResume = (req, res, next) => {
                     message: 'resume not Found'
                 })
             }
-            res.status(200).json({
-                data: resume
-            })
+            res.status(200).json(resume)
         })
         .catch(err => {
             res.status(500).json({
@@ -96,20 +96,20 @@ exports.deleteResume = (req, res, next) => {
 }
 
 exports.updateResume = (req, res, next) => {
-    Resume.findByIdAndUpdate({_id : req.params.resumeId }, { data : req.body.resume })
-    .exec()
-    .then(result => {
-        console.log(result);
-        res.status(200).json({
-            message: 'Resume Updated'
+    Resume.findByIdAndUpdate({ _id: req.params.resumeId }, { data: req.body.resume })
+        .exec()
+        .then(result => {
+            console.log(result);
+            res.status(200).json({
+                message: 'Resume Updated'
+            })
         })
-    })
-    .catch( err => {
-        console.log(err);
-        res.status(500).json({
-            error : err
-        })
-    });
+        .catch(err => {
+            console.log(err);
+            res.status(500).json({
+                error: err
+            })
+        });
 }
 
 exports.generateQR = (req, res, next) => {

@@ -25,6 +25,8 @@ import { LoaderComponent } from './common/loader/loader.component';
 import { ApiInterceptor } from "./interceptor/http.interceptor"
 import { LoaderModule } from './common/loader/loader.module';
 import { ResumeTwoComponent } from './templates/resume-two/resume-two.component';
+import { QrModalComponent } from './resume/qr-modal/qr-modal.component';
+import { QRCodeModule } from "angular2-qrcode"
 @NgModule({
   declarations: [
     AppComponent,
@@ -41,7 +43,8 @@ import { ResumeTwoComponent } from './templates/resume-two/resume-two.component'
     PreviewComponent,
     ResumeComponent,
     ResumeTwoComponent,
-    ResumeOneComponent
+    ResumeOneComponent,
+    QrModalComponent
   ],
   imports: [
     ToastrModule.forRoot({
@@ -58,6 +61,7 @@ import { ResumeTwoComponent } from './templates/resume-two/resume-two.component'
     FormsModule,
     ReactiveFormsModule,
     LoaderModule,
+    QRCodeModule,
     BrowserAnimationsModule
   ],
   providers: [
