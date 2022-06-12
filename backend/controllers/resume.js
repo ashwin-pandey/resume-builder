@@ -34,6 +34,7 @@ exports.createResume = (req, res, next) => {
             const resume = new Resume({
                 _id: mongoose.Types.ObjectId(),
                 template: template._id,
+                user: req.body.userId,
                 qrGenerated: false,
                 data: req.body.resume
             });
