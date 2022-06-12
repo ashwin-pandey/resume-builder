@@ -25,6 +25,7 @@ exports.getAllResume = (req, res, next) => {
 
 exports.createResume = (req, res, next) => {
     Template.findById({ _id: req.body.templateId })
+        .exec()
         .then(template => {
             if (!template) {
                 return res.status(404).json({
@@ -34,6 +35,7 @@ exports.createResume = (req, res, next) => {
             const resume = new Resume({
                 _id: mongoose.Types.ObjectId(),
                 template: template._id,
+                user: req.body.userId,
                 qrGenerated: false,
                 data: req.body.resume
             });
@@ -94,7 +96,7 @@ exports.deleteResume = (req, res, next) => {
 }
 
 exports.updateResume = (req, res, next) => {
-    Resume.findByIdAndUpdate({_id : req.params.resumeId }, { $set : req.body.resume })
+    Resume.findByIdAndUpdate({_id : req.params.resumeId }, { data : req.body.resume })
     .exec()
     .then(result => {
         console.log(result);
@@ -142,7 +144,7 @@ exports.getQRLink = (req, res, next) => {
                 })
             }
             res.status(200).json({
-                data: `${req.protocol}://${req.get('host')}/QRLink/${req.params.resumeId}`
+                data: `${req.protocol}://${req.get('host')}/template/${resume.template}/resume/${resume._id}`
             })
         })
         .catch(err => {

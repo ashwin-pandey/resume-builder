@@ -17,6 +17,7 @@ export class TemplatesComponent implements OnInit {
     this.getAllTemplates();
   }
   selectTemplate(id: any) {
+    this._form.setTemplateId(id);
     this._router.navigate(['resume/add'])
   }
   getAllTemplates() {

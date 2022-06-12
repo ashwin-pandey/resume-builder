@@ -20,9 +20,11 @@ import { ResumeComponent } from './resume/resume.component';
 import { HttpClientModule, HTTP_INTERCEPTORS } from "@angular/common/http";
 import { ToastrModule } from 'ngx-toastr';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { ResumeOneComponent } from './templates/resume-one/resume-one.component';
 import { LoaderComponent } from './common/loader/loader.component';
 import { ApiInterceptor } from "./interceptor/http.interceptor"
 import { LoaderModule } from './common/loader/loader.module';
+import { ResumeTwoComponent } from './templates/resume-two/resume-two.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -37,7 +39,10 @@ import { LoaderModule } from './common/loader/loader.module';
     FooterComponent,
     SignupComponent,
     PreviewComponent,
-    ResumeComponent],
+    ResumeComponent,
+    ResumeTwoComponent,
+    ResumeOneComponent
+  ],
   imports: [
     ToastrModule.forRoot({
       iconClasses: {

@@ -57,6 +57,7 @@ export class LoginComponent implements OnInit {
           this._router.navigate(['/template'])
           this.toastr.success("Login Successful!!!");
           this._auth.setToken(res.token);
+          this._auth.setUserId(res.userId);
         }
       },
       error: (error) => {

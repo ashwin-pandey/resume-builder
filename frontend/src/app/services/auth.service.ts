@@ -8,6 +8,7 @@ import { environment } from 'src/environments/environment';
 })
 export class AuthService {
 
+  userId: any = '';
   isLoggedIn = new BehaviorSubject<boolean>(false);
   baseUrl: string = environment.baseUrl;
   constructor(private _http: HttpClient) { }
@@ -23,5 +24,11 @@ export class AuthService {
   }
   getToken() {
     return localStorage.getItem('token');
+  }
+  setUserId(userId: string) {
+    this.userId = userId;
+  }
+  getUserId() {
+    return this.userId;
   }
 }
