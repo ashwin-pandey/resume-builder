@@ -1,3 +1,4 @@
+import { ToastrService } from 'ngx-toastr';
 import { Component, OnInit } from '@angular/core';
 import { Education } from 'src/app/models/education.model';
 import { Experience } from 'src/app/models/experience.model';
@@ -16,6 +17,7 @@ export class AddComponent implements OnInit {
 
   constructor(private formService: FormServiceService,
     private authService: AuthService,
+    private _toaster: ToastrService,
     private router: Router) { }
 
   // Personal Details
@@ -63,6 +65,8 @@ export class AddComponent implements OnInit {
     console.log(this.skills)
     // reset
     this.skillInput = '';
+    this._toaster.success('Skills Added')
+
   }
 
   addCompany() {
@@ -85,6 +89,7 @@ export class AddComponent implements OnInit {
     this.companyDescription = '';
     this.companyFromDate = '';
     this.companyToDate = '';
+    this._toaster.success('Company Added')
   }
 
   addEducation() {
@@ -106,12 +111,16 @@ export class AddComponent implements OnInit {
     this.institutionStartDate = '';
     this.institutionEndDate = '';
     this.institutionScore = '';
+    this._toaster.success('Education Added')
+
   }
 
   addHobbies() {
     this.hobbies.push(this.hobby);
     console.log(this.hobbies);
     this.hobby = '';
+    this._toaster.success('Hobbies Added')
+
   }
 
   saveDetails() {
@@ -141,6 +150,8 @@ export class AddComponent implements OnInit {
         console.log("resume id ", resumeId, `template/${templateId}/resume/${resumeId}`);
 
         this.router.navigate([`template/${templateId}/resume/${resumeId}`]);
+        this._toaster.success('Great! Your Resume is Created, You can view from Resume section')
+
       }
     });
 
