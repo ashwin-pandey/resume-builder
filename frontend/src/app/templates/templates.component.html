@@ -1,9 +1,9 @@
 <div id="card_container">
   <!-- A div with card class for the card  -->
-  <div class="card" *ngFor="let template of templates">
+  <div class="card" *ngFor="let template of templates; let i=index">
     <img
       class="img-responsive"
-      src="../../assets/images/template.jpg"
+      src="../../assets/images/template{{i+1}}.jpg"
       alt="Lago di Braies"
     />
 
@@ -16,30 +16,6 @@
 
       <p>
         {{ template.description }}
-      </p>
-
-      <button type="button" (click)="selectTemplate('id_1')">
-        Select Template
-      </button>
-    </div>
-  </div>
-  <div class="card">
-    <img
-      class="img-responsive"
-      src="../../assets/images/template.jpg" 
-      alt="Lago di Braies"
-    />
-
-    <!-- A div with card__details class to hold the details in the card  -->
-    <div class="card__details">
-      <!-- Span with tag class for the tag -->
-
-      <!-- A div with name class for the name of the card -->
-      <div class="name">Lago di Braies</div>
-
-      <p>
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Consectetur
-        sodales morbi dignissim sed diam pharetra vitae ipsum odio.
       </p>
 
       <button type="button" (click)="selectTemplate(template._id)">
