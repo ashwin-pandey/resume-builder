@@ -18,7 +18,7 @@
         {{ template.description }}
       </p>
 
-      <button type="button" (click)="selectTemplate(template._id)">
+      <button type="button" (click)="selectTemplate(template._id)" [disabled]="i == 1">
         Select Template
       </button>
     </div>
