@@ -11,11 +11,12 @@ import { EditComponent } from './resume/edit/edit.component';
 import { ViewComponent } from './resume/view/view.component';
 import { ResumeComponent } from './resume/resume.component';
 import { AuthGuard } from './guard/auth.guard';
+import { LoggedInGuard } from './guard/logged-in.guard';
 
 const routes: Routes = [
-  { path: 'login', component: LoginComponent },
+  { path: 'login', component: LoginComponent, canActivate: [LoggedInGuard] },
   { path: 'signup', component: SignupComponent },
-  { path: '', component: HomeComponent },
+  { path: '', component: HomeComponent, canActivate: [LoggedInGuard] },
   { path: 'template', component: TemplatesComponent, canActivate: [AuthGuard], },
   {
     path: 'resume',

@@ -17,13 +17,18 @@ export class HeaderComponent implements OnInit {
       //   result.getIdToken(),
       //   result.getIdTokenResult()
       // );
-      this.isLoggedIn = result
-      console.log('result in const', result, this.isLoggedIn);
+      this.isLoggedIn = result;
+      if (this.isLoggedIn) {
+        this._router.navigate(['/template'])
+      }
     });
   }
 
   ngOnInit(): void {
-    this.isLoggedIn = this._auth.getToken() ? true : false
+    this.isLoggedIn = this._auth.getToken() ? true : false;
+    if (this.isLoggedIn) {
+      this._router.navigate(['/template'])
+    }
   }
   onLogout() {
     console.log('in logout');

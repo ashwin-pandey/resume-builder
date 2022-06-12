@@ -10,12 +10,44 @@ import { AuthService } from 'src/app/services/auth.service';
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent implements OnInit {
-
+  isSignIn: boolean = false;
   email: string = ''
   password: string = ''
-  constructor(private _auth: AuthService, private toastr: ToastrService, private _router: Router, private _loaderService: LoaderService) { }
+  name: string = ''
+  phone: string = ''
+  activeForm: string = 'login';
+  isLoggedIn: boolean | undefined;
 
+  constructor(private _auth: AuthService, private toastr: ToastrService, private _router: Router, private _loaderService: LoaderService) {
+    this._auth.isLoggedIn.subscribe((result) => {
+      console.log(
+        'rsult in const', result
+      );
+      this.isLoggedIn = result;
+      if (this.isLoggedIn) {
+        this._router.navigate(['/'])
+      }
+    });
+
+  }
   ngOnInit(): void {
+    this._auth.isLoggedIn.subscribe((result) => {
+      // console.log(
+      //   'rsult in const',
+      //   result.getIdToken(),
+      //   result.getIdTokenResult()
+      // );
+      this.isLoggedIn = result;
+      if (this.isLoggedIn) {
+        this._router.navigate(['/'])
+      }
+    });
+  }
+  onSelectSignIn() {
+    this.isSignIn = true
+  }
+  onSelectLogin() {
+    this.isSignIn = false
   }
   loginUser() {
     this._auth.loginUser(this.email, this.password).subscribe({
@@ -25,7 +57,6 @@ export class LoginComponent implements OnInit {
           this._router.navigate(['/template'])
           this.toastr.success("Login Successful!!!");
           this._auth.setToken(res.token);
-
         }
       },
       error: (error) => {
@@ -35,10 +66,12 @@ export class LoginComponent implements OnInit {
   }
   signUpUser() {
     this._auth.signUser(this.email, this.password).subscribe({
-      next: (res) => {
+      next: (res: any) => {
         if (res) {
-          this.loginUser()
-          this.toastr.success("Signup Successful!!!")
+          this._auth.isLoggedIn.next(true);
+          this._auth.setToken(res.token);
+          this.toastr.success("Signup Successful!!!");
+          this._router.navigate(['/template'])
         }
       },
       error: (error) => {
