@@ -1,10 +1,15 @@
 <div class="d-flex justify-content-center align-items-center">
-  <qr-code [value]="qrData" [size]="320" #qrcode></qr-code>
+  <qr-code [value]="qrData" [size]="320" #qrcode class="coolQRCode"></qr-code>
 </div>
 <hr />
 
 <h3 style="text-align: center">Scan QR or Download to share the resume</h3>
-<button type="button" data-toggle="modal" data-target="" (click)="download()">
+<button
+  type="button"
+  *ngIf="qrData"
+  data-toggle="modal"
+  data-target=""
+  (click)="download()"
+>
   Download
 </button>
-<canvas #canvas> </canvas>
