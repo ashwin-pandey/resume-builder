@@ -32,25 +32,21 @@ export class ResumeOneComponent implements OnInit {
 
   ngOnInit(): void {
     this.resumeId = this.route.snapshot.paramMap.get('resumeId');
-    this.getResumeDetails();
-    this.firstName = this.resume.firstName;
-    this.lastName = this.resume.lastName;
-    this.email = this.resume.email;
-    this.introduction = this.resume.introduction;
-    this.designation = this.resume.designation;
-    this.phone = this.resume.phone;
-    this.skills = this.resume.skills;
-    this.experience = this.resume.experience;
-    this.education = this.resume.education;
-    this.hobbies = this.resume.hobbies;
-  }
-
-  getResumeDetails() {
     this.formService.getResumeById(this.resumeId).subscribe({
-      next: (res) => {
-        this.resume = res;
+      next: (res: any) => {
+        this.firstName = res.data.firstName;
+        this.lastName = res.data.lastName;
+        this.email = res.data.email;
+        this.introduction = res.data.introduction;
+        this.designation = res.data.designation;
+        this.phone = res.data.phone;
+        this.skills = res.data.skills;
+        this.experience = res.data.experience;
+        this.education = res.data.education;
+        this.hobbies = res.data.hobbies;
       }
     });
+
   }
 
 }

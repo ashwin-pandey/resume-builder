@@ -4,6 +4,7 @@ const resumeSchema = mongoose.Schema({
     _id: mongoose.Schema.Types.ObjectId,
     template: { type: mongoose.Schema.Types.ObjectId, ref: 'Template', required: true },
     user: { type: mongoose.Schema.Types.ObjectId, ref: 'User', required: true },
+    name: { type: String, required: true },
     qrGenerated: { type: Boolean, required: false, default: false },
     data: {
         firstName: String,
@@ -14,8 +15,8 @@ const resumeSchema = mongoose.Schema({
         phone: { type: Number, required: true },
         city: { type: String, required: true },
         state: { type: String, required: true },
-        skills: [{ name: String }],
-        hobbies: [{ name: String }],
+        skills: [{ type: String }],
+        hobbies: [{ type: String }],
         experience: [{
             company: { type: String, required: true },
             from: { type: String, required: true },

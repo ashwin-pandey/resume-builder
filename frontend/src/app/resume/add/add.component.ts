@@ -1,3 +1,4 @@
+import { ToastrService } from 'ngx-toastr';
 import { Component, OnInit } from '@angular/core';
 import { Education } from 'src/app/models/education.model';
 import { Experience } from 'src/app/models/experience.model';
@@ -14,15 +15,17 @@ import { Router } from '@angular/router';
 })
 export class AddComponent implements OnInit {
 
-  constructor(private formService: FormServiceService, 
+  constructor(private formService: FormServiceService,
     private authService: AuthService,
+    private _toaster: ToastrService,
     private router: Router) { }
 
   // Personal Details
+  resumeName: any = 'Sample';
   firstName: any = '';
   lastName: any = '';
   email: any = '';
-  designation: any = ''; 
+  designation: any = '';
   phone: any = '';
   city: any = '';
   state: any = '';
@@ -54,7 +57,7 @@ export class AddComponent implements OnInit {
 
 
   ngOnInit(): void {
-    
+
   }
 
   addSkill() {
@@ -62,6 +65,8 @@ export class AddComponent implements OnInit {
     console.log(this.skills)
     // reset
     this.skillInput = '';
+    this._toaster.success('Skills Added')
+
   }
 
   addCompany() {
@@ -75,7 +80,7 @@ export class AddComponent implements OnInit {
 
     // add work experience into the array
     this.workExperience.push(experience);
-    
+
     console.log(this.workExperience);
 
     // reset
@@ -84,6 +89,7 @@ export class AddComponent implements OnInit {
     this.companyDescription = '';
     this.companyFromDate = '';
     this.companyToDate = '';
+    this._toaster.success('Company Added')
   }
 
   addEducation() {
@@ -94,7 +100,7 @@ export class AddComponent implements OnInit {
       to: this.institutionEndDate,
       score: this.institutionScore
     };
-    
+
     this.education.push(education);
 
     console.log(this.education);
@@ -105,12 +111,16 @@ export class AddComponent implements OnInit {
     this.institutionStartDate = '';
     this.institutionEndDate = '';
     this.institutionScore = '';
+    this._toaster.success('Education Added')
+
   }
 
   addHobbies() {
     this.hobbies.push(this.hobby);
     console.log(this.hobbies);
     this.hobby = '';
+    this._toaster.success('Hobbies Added')
+
   }
 
   saveDetails() {
@@ -131,13 +141,17 @@ export class AddComponent implements OnInit {
 
     console.log(resume);
     let templateId = this.formService.getTemplateId();
-    let userId = this.authService.getUserId();
-    
+    let userId: any = this.authService.getUserId();
+
     let resumeId;
-    this.formService.createResume(templateId, resume, userId).subscribe({
+    this.formService.createResume(templateId, resume, userId, this.resumeName).subscribe({
       next: (response: any) => {
-        resumeId = response.createdResponse._id
+        resumeId = response.createdResume._id;
+        console.log("resume id ", resumeId, `template/${templateId}/resume/${resumeId}`);
+
         this.router.navigate([`template/${templateId}/resume/${resumeId}`]);
+        this._toaster.success('Great! Your Resume is Created, You can view from Resume section')
+
       }
     });
 
