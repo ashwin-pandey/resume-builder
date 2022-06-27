@@ -1,9 +1,9 @@
 {
-    "env" : {
-        "MONGO_ATLAS_PW" : "Jaybhanushali316",
+    "env": {
+        "MONGO_ATLAS_PW": "Jaybhanushali316",
         "JWT_KEY": "secret",
-        "url":"/",
+        "url": "/",
         "PORT": "4000",
-        "MONGO_USER":"jaybhanushali3166"
+        "MONGO_USER": "jaybhanushali3166"
     }
 }

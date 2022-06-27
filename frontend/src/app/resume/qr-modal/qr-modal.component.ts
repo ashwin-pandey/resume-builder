@@ -2,6 +2,7 @@ import { FormServiceService } from './../../services/form-service.service';
 import { Component, ElementRef, OnInit, Renderer2, ViewChild } from '@angular/core';
 import { AuthService } from 'src/app/services/auth.service';
 import { ToastrService } from 'ngx-toastr';
+import { QRCodeComponent } from 'angular2-qrcode';
 
 @Component({
   selector: 'app-qr-modal',
@@ -13,11 +14,8 @@ export class QrModalComponent implements OnInit {
   qrData: any = '';
   naturalWidth: any;
   naturalHeight: any
-  @ViewChild('canvas', { static: true }) canvas: any;
-  @ViewChild('qrcode', { static: true }) qrcode: ElementRef<HTMLElement> | undefined;
-  image: any;
-  anchor: any;
-  constructor(private _auth: AuthService, private _form: FormServiceService, private _toaster: ToastrService, private renderer: Renderer2,) { }
+  @ViewChild('qrcode', { read: ElementRef }) private qrcode!: ElementRef;
+  constructor(private _auth: AuthService, private _form: FormServiceService, private _toaster: ToastrService, private renderer: Renderer2) { }
 
   ngOnInit(): void {
     this.resumeId = this._auth.getResumeId();
@@ -27,7 +25,6 @@ export class QrModalComponent implements OnInit {
 
         if (res) {
           this.qrData = res.data;
-          this.capture()
         }
       },
       error: (err) => {
@@ -36,35 +33,23 @@ export class QrModalComponent implements OnInit {
 
     })
   }
-  // Capturing Image
-  capture() {
-    console.log("qr code", this.canvas?.nativeElement.children);
-
-    let canvas: any = this.canvas?.nativeElement;
-    console.log("qr code canvas ", canvas);
-
-    const image = canvas.toDataURL()// Using optional size for image
-
-    console.log("image", image);
-    let a = document.createElement('a');
-    a.href = image;
-    a.download = 'resume.png';
-    this.anchor = a;
-  }
   download() {
-    if (this.anchor)
-      this.anchor.click()
-  }
-
-
-
-  convertCanvastoFile(dataURL: any) {
-    let blobBin = atob(dataURL.split(',')[1]);
-    let array = [];
-    for (let i = 0; i < blobBin.length; i++) {
-      array.push(blobBin.charCodeAt(i));
-    }
-    let file = new Blob([new Uint8Array(array)], { type: 'image/png' });
-    return file;
+    const fileNameToDownload = 'resume_qrcode';
+    const base64Img = this.qrcode?.nativeElement?.children[0]?.src;
+    fetch(base64Img)
+      .then(res => res.blob())
+      .then((blob) => {
+        // IE
+        // if (window.navigator && window.navigator['msSaveOrOpenBlob']){
+        //   //  window.navigator.msSaveOrOpenBlob(blob,fileNameToDownload);
+        // } 
+        // if { // Chrome
+        const url = window.URL.createObjectURL(blob);
+        const link = document.createElement('a');
+        link.href = url;
+        link.download = fileNameToDownload;
+        link.click();
+        // }
+      })
   }
 }
