@@ -1,5 +1,11 @@
 <div class="d-flex justify-content-center align-items-center">
-  <qr-code [value]="qrData" [size]="320" #qrcode class="coolQRCode"></qr-code>
+  <qr-code
+    *ngIf="qrData"
+    [value]="qrData"
+    [size]="320"
+    #qrcode
+    class="coolQRCode"
+  ></qr-code>
 </div>
 <hr />
 
