@@ -10,7 +10,7 @@ cp -rf ./dist/frontend ../backend/dist
 cd ..
 
 # Deploy app to heroku
-rm -rf ../cv-lab-ineuron/!\(.git\)
+rm -rf ./cv-lab-ineuron/!\(.git\)
 cp -rf /backend/!\(node_modules\) /cv-lab-ineuron
 cd /cv-lab-ineuron
 git add .
