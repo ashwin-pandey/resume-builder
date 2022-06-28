@@ -1,8 +1,8 @@
 ## CV Lab - Resume Builder
 Hello There :)
 
-Problem Statement: QR code based resume builder
-Our product name: CV Lab
+
+CV Lab is a QR code based resume builder
 
 ### What we have implemented with this product:
 * JWT token based authentication
